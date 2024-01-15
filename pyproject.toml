@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "common-functions"
+version = "0.1.0"
+description = "Common Tools and Functions fo data processing"
+authors = ["Mark Parrish <mark@pipcommunications.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.1.4"
+gender-guesser = "^0.4.0"
+usaddress = "^0.5.10"
+pandarallel = "^1.6.5"
+usaddress-scourgify = "^0.6.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
