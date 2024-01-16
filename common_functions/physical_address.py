@@ -1,7 +1,17 @@
 import usaddress
 from scourgify import normalize_address_record
 
-def standardize_address(whole):
+def standardize_address(address_columns):
+
+    # Check if address_columns is a single column (string) or multiple columns (list)
+    if isinstance(address_columns, str):
+        # It's a single column (string), no need to join
+        address_str = address_columns
+    elif isinstance(address_columns, list):
+        # It's a list of columns, join them into a single string
+        address_str = ', '.join(address_columns)
+    else:
+        raise ValueError("Invalid input for address_columns")
 
     address = {
         'address_line_1': '',
@@ -12,7 +22,7 @@ def standardize_address(whole):
     }
 
     try:
-        tagged_address, address_type = usaddress.tag(whole, tag_mapping={
+        tagged_address, address_type = usaddress.tag(address_string=address_str, tag_mapping={
             'Recipient': 'recipient',
             'AddressNumber': 'address_line_1',
             'AddressNumberPrefix': 'address_line_1',
