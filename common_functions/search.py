@@ -3,7 +3,7 @@ from elasticsearch import Elasticsearch
 class MyElasticsearch:
 
     def __init__(self, host, ca_cert_path, username=None, password=None):
-        self.client = Elasticsearch(es_host, ca_certs=ca_cert_path)
+        self.client = Elasticsearch(host, ca_certs=ca_cert_path)
         self.username = username
         self.password = password
 
