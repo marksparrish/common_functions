@@ -9,6 +9,16 @@ import numpy as np
 from typing import Tuple, List, Optional
 
 
+def timing_decorator(func):
+    import time
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"{func.__name__} took {end - start} seconds to run.")
+        return result
+    return wrapper
+
 def get_timing(start_time):
     execution_time = (time.time() - start_time) / 60
     current_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')
